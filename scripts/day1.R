@@ -180,9 +180,4 @@ m <- m - rowMeans(m)
 rownames(m) <- make.unique(top30$gene_name)
 pheatmap(m, annotation_col = ann, main = "Top 30 genes, VST, centred per gene")
 
-git add scripts/
-  git commit -m "Day 1: differential expression"
-git push
-git log --oneline
-git status
 
