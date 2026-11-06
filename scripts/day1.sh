@@ -41,7 +41,7 @@ fastp --version
 fastqc --version
 multiqc --version
 
-#Envrionment file check
+#Envrionment kontrolü 
 bash check/day1-envs.sh
 
 #Git push 
