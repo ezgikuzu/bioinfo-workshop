@@ -1,3 +1,11 @@
+# rnaseq.yml: RNA-seq analizinde kullanılan Salmon, fastp,
+# FastQC ve MultiQC araçlarını belirli sürümleriyle tanımlar.
+# Ortamın aynı araç sürümleriyle yeniden kurulmasını sağlar.
+# FastQC: Okumaların kalitesini raporlar.
+# fastp: Okumaları kırpar.
+# Salmon: Okumaları transkriptlere eşler ve sayar.
+# MultiQC: Tüm raporları tek sayfada toplar.
+# Dosya, Files bölmesindeki envs klasöründen incelenir.
 name: rnaseq
 channels:
 - conda-forge

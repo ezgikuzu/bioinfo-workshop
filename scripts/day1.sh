@@ -1,36 +1,40 @@
+#Conda paketleri nerede ve hangi sırayla aradığını görmek amacıyla kanal ayarlarını yazdırıyoruz.
 conda config --show channels
+
+#Ortamın nasıl çalıştığını görmek amacıyla 'deneme' adlı, alıştırma için oluşturup sonra silinecek küçük ortam kuruldu.
 conda create -y -n deneme seqkit
+
+#Ortamın gerçekten ayrı bir klasör olduğunu görmek için ortamı etkinleştiriyor, aracın nereden çalıştığına bakıyor, ardından ortamı kapatıp aynı soruyu yeniden soruyoruz.
 conda activate deneme
 which seqkit
 seqkit version
 conda deactivate
 which seqkit
-conda activate deneme
-conda deactivate
-#Tool Inspect, extend, export
-conda list -n variants-ready | grep -E "^(# Name|bcftools|samtools|bwa|htslib) "
-#Dowloading a tool or package ibto an env, not activated yet.
-conda install -y -n deneme seqtk
-conda activate deneme
-which seqtk
-conda deactivate
-which seqtk
 
-#Check the deneme env's history
+#Bu adımda, variants-ready ortamını etkinleştirmeden varyant analizinde kullanılacak dört aracın sürümlerini kontrol ediyoruz.
+conda list -n variants-ready | grep -E "^(# Name|bcftools|samtools|bwa|htslib) "
+
+#Proje ilerledikçe genişleyebilir. Bu adımda, deneme ortamında ikinci küçük bir FASTQ aracı olan seqtk'yi ekliyoruz.
+conda install -y -n deneme seqtk
+
+
+#Bu adımda, ortamı başka bir bilgisayarda yeniden kurabilmek için tanımını envs/deneme.yml dosyasına kaydedip içeriğini inceliyoruz.
 conda env export -n deneme --from-history > envs/deneme.yml
 cat envs/deneme.yml
 
-#Removing on environment 
+#Alıştırmayı tamamlamak amacıyla 'deneme' ortamını siliyor ve ortam listesine yeniden bakıyoruz.
 conda env remove -y -n deneme
 conda env list
 
-#Print the env details
+# Dosyanın içeriği kontrol edilir ve Conda ortamı (ortam ayrıntıları yazılır)
+# bu dosyadan oluşturulur. Komutlar scripts/day1.sh dosyasına eklenir.
 cat envs/rnaseq.yml
 
-#setup the env
+#evs kurulur.
 conda env create -f envs/rnaseq.yml
 
-#Version control for the packages used
+# Yeni Conda ortamı etkinleştirilir ve dört aracın sürümleri
+# kontrol edilir. Ortam, Terminal boyunca etkin kalır.
 conda activate rnaseq
 salmon --version
 fastp --version

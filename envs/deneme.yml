@@ -1,3 +1,5 @@
+# deneme.yml: Conda ortamının adını, kanallarını ve
+# yüklenecek araçları tanımlar. Ortamın yeniden kurulmasını sağlar.
 name: deneme
 channels:
   - conda-forge
