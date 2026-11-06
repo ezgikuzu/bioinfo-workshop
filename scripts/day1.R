@@ -7,6 +7,9 @@ library(pheatmap)
 library(ggrepel)
 library(apeglm)
 
+# Salmon aracının sistemdeki dosya yolunu kontrol eder.
+Sys.which("salmon")
+
 #Loading samples
 samples <- read_csv("data/airway_samples.csv")
 samples

@@ -49,6 +49,7 @@ git add envs/ scripts/
 git commit -m "Day 1: environment files"
 git push
 
+
 #Retrieve Data/Download
 curl -L -o data/airway_samples.csv https://github.com/onedimkurt/bioinfo-workshop/releases/download/data-v1/airway_samples.csv
 head -3 data/airway_samples.csv
